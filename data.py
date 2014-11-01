@@ -2,14 +2,17 @@
 # GAME DATA                                                                                                 #
 #############################################################################################################
 
-DirectionsArray = ['SE', 'WE',  'WE',  'SWE', 'WE',   'WE',  'SWE',  'WS',
-                   'NS', 'SE',  'WE',  'NW',  'SE',   'W',   'NE',   'NSW',
-                   'NS', 'NS',  'SE',  'WE',  'NWUD', 'SE',  'WSUD', 'NS',
-                   'N',  'NS',  'NSE',  'WE',  'WE',   'NSW', 'NS',   'NS',
-                   'S',  'NSE', 'NSW', 'S',   'NSUD', 'N',   'N',    'NS',
-                   'NE', 'NW',  'NE',  'W',   'NSE',  'WE',  'W',    'NS',
-                   'SE', 'NSW', 'E',   'WE',  'NW',   'S',   'SW',   'NW',
-                   'NE', 'NWE', 'WE',  'WE',  'WE',   'NWE', 'NWE',  'W']
+directionsArray = \
+['SE',  'WE',   'WE',   'SWE',  'WE',   'WE',   'SWE',  'SW',
+'NS',   'SE',   'WE',   'NW',   'SE',   'W',    'NSE',   'NSW',
+'NS',   'NS',   'SE',   'WE',   'NSW',  'SE',   'NSW',  'NS',
+'N',    'NS',   'NSE',  'WE',   'NSWE', 'NSW',  'NS',   'NS',
+'S',    'NSE',  'NSW',  'S',    'NS',   'N',    'N',    'NS',
+'NE',   'NSW',  'NE',   'NW',   'NSE',  'WE',   'W',    'NS',
+'SE',   'NSW',  'E',    'WE',   'NW',   'SE',   'SWE',  'NW',
+'NE',   'NWE',  'WE',   'WE',   'WE',   'NWE',  'NWE',  'W']
+
+
 
 LocationsArray = \
 [ 'DARK CORNER',                  'OVERGROWN GARDEN',       'BY LARGE WOODPILE',         'YARD BY RUBBISH',

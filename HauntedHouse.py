@@ -246,7 +246,7 @@ def DisplayExamineMessage(MessageID, noun):
     elif MessageID == 4:
         print("UNFORTUNATELY THE DRAWER IS LOCKED")
     elif MessageID == 5:
-        print("THE RUBBISH IS FILTHY")
+        print("The rubbish is filthy, what were you expecting to find?")
     elif MessageID == 6:
         print("YOU LOOK AT THE WALL AND DISCOVER IT IS FALSE!\nYOU DISCOVER A NEW EXIT")
     elif MessageID == 7:
@@ -260,20 +260,6 @@ def DisplayExamineMessage(MessageID, noun):
         print("NO INTERESTING " + noun + "HERE...")
     elif MessageID == 99:
         print("WHAT " + noun + "?")
-
-
-def DisplayMagicMessage(LocationID, newLocationID):
-    print("YOU UTTER WORDS OF DARK MAGIC... X2ANFAR!")
-    print("YOU DISAPPEAR AND REAPPEAR IN ANOTHER LOCATION...")
-    print("YOU WERE IN " + LocationsArray[LocationID])
-    print("YOU ARE NOW IN " + LocationsArray[newLocationID])
-
-'''
-def PrintableInts(value):
-    if (value < 10):
-        return " " + str(value)
-    return str(value)
-'''
 
 def RoomInfo(value):
     if value == LocationID:
@@ -435,6 +421,9 @@ def ProcessStatement(statement):
     if verb in ["MAP", "M"]:
         ToggleMap()
 
+    if verb in ["QUIT", "EXIT"]:
+        OnGameExit()
+
     elif ((verb == "OPEN" or verb == "UNLOCK") and noun == "DOOR") or (verb == "USE" and noun == "KEY"):
         DisplayAttemptOpenDoor(OpenDoor())
 
@@ -450,10 +439,6 @@ def ProcessStatement(statement):
     elif isMovementVerb(verb, noun):
         Go(statement)
 
-    print("LocationID=", LocationID)
-
-
-
 def DungeonMaster():
     print("╔══════════════════════════════╗\n"
           "║ %s ║\n"
@@ -464,13 +449,55 @@ def DungeonMaster():
         print("%-40s%-40s" %(key, value))
 
 
+def getStatementYN(input):
+    if input in ["y", "Y", "yes", "YES", ""]:
+        return YES
+    elif input in ["n", "N", "no", "NO"]:
+        return NO
+    else:
+        return INVALID
+
+def SaveGame():
+    print("SAVING")
+    print("SAVING")
+    print("SAVING")
+
 def OnGameInit():  # When the game first initializes
     DungeonMaster()
+
+def OnGameExit():
+    statement = INVALID
+    while getStatementYN(statement) == INVALID:
+        statement = input("Are you sure you want to quit? (Y/n) ").upper()
+
+    if getStatementYN(statement) == YES:
+        saveGame = INVALID
+        while getStatementYN(saveGame) == INVALID:
+            saveGame = input("Do you want to save the game? (Y/n) ").upper()
+
+        if getStatementYN(saveGame) == YES:
+            SaveGame()
+            exitString = "Saving the game...\nExiting..."
+        if getStatementYN(saveGame) == NO:
+            exitString = "Exiting without saving..."
+
+        global QUIT
+        QUIT = True
+
+        print("Thank you for playing the Haunted House game")
+        print(exitString)
+
+        return
+    if getStatementYN(statement) == NO:
+        print("You chose not to quit")
+        return
+
+
 
 def Game():
     global VisitedPlaces
     OnGameInit()
-    while not isEndOfGame(LocationID, GetScore()):
+    while not isEndOfGame(LocationID, GetScore()) and not QUIT == True:
         if LocationID not in VisitedPlaces:
             VisitedPlaces.append(LocationID)
         DisplayGameName()

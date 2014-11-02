@@ -60,6 +60,10 @@ ItemList = ['PAINTING', 'RING',      'MAGIC SPELLS', 'GOBLET', 'SCROLL', 'COINS'
 PositionOfItems = [46, 38, 35, 50, 13, 18, 28, 42, 10, 25, 26, 4, 2, 7, 47, 60, 100, 100]
 
 MapEnabled = True
+QUIT = False
 LocationID = 0
+YES = "1"
+NO = "0"
+INVALID = "-1"
 
 VisitedPlaces = []

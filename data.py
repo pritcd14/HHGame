@@ -2,7 +2,7 @@
 # GAME DATA                                                                                                 #
 #############################################################################################################
 
-directionsArray = \
+DirectionsArray = \
 ['SE',  'WE',   'WE',   'SWE',  'WE',   'WE',   'SWE',  'SW',
 'NS',   'SE',   'WE',   'NW',   'SE',   'W',    'NSE',   'NSW',
 'NS',   'NS',   'SE',   'WE',   'NSW',  'SE',   'NSW',  'NS',

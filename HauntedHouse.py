@@ -82,7 +82,7 @@ def GetMovementDirection(statement):
 
 
 def isEndOfGame(score, locationID):
-    return score == 17 and locationID == 57
+    return score == WINNING_SCORE and locationID == WINNING_ROOM
 
 
 def GetScore():
@@ -116,9 +116,18 @@ def DisplayItemsAtPosition():
     if ItemsAvailableAtPosition():
         print("You can see these items in your area:", ListItemsAtPosition())
 
-
 def DisplayVisibleExitsAtPosition():
-    print("Visible exits: ", DirectionsArray[LocationID])
+    exits = ""
+    if "N" in DirectionsArray[LocationID]: # See if 'north (N)' is in the list of valid directions
+        exits += "North and "
+    if "S" in DirectionsArray[LocationID]: # See if 'south (S)' is in the list of valid directions
+        exits += "South and "
+    if "E" in DirectionsArray[LocationID]: # See if 'east (E)' is in the list of valid directions
+        exits += "East and "
+    if "W" in DirectionsArray[LocationID]: # See if 'west (W)' is in the list of valid directions
+        exits += "West and "
+
+    print("Visible exits:", exits[:-4])
 
 def DisplayGetItemMessage(successful, noun):
     if successful:
@@ -387,13 +396,13 @@ def DropItem(ItemID):
         return True
     return False
 
-'''
+
 def OpenDoor():
     if LocationID == 28 and isItemInInventory("KEY"):
         DirectionsArray[LocationID] = "SEW"
         return True
     return False
-'''
+
 
 def ToggleMap():
     global MapEnabled
@@ -443,6 +452,7 @@ def DungeonMaster():
     print("╔══════════════════════════════╗\n"
           "║ %s ║\n"
           "╚══════════════════════════════╝" %"Welcome to the Haunted House")
+    print("\nTo win the game, you must have a score of", WINNING_SCORE, "and be at the:", LocationsArray[WINNING_ROOM].capitalize())
     print("\nHere is a full list of the commands, and what each of them do:")
     print("%-40s%-40s" %("Command", "Explanation"))
     for key, value in DVerbList.items():
@@ -483,15 +493,13 @@ def OnGameExit():
 
         global QUIT
         QUIT = True
-
         print("Thank you for playing the Haunted House game")
         print(exitString)
-
         return
+
     if getStatementYN(statement) == NO:
         print("You chose not to quit")
         return
-
 
 
 def Game():

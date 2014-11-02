@@ -65,5 +65,7 @@ LocationID = 0
 YES = "1"
 NO = "0"
 INVALID = "-1"
+WINNING_SCORE = 17
+WINNING_ROOM = 57
 
 VisitedPlaces = []

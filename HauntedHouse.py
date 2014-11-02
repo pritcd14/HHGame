@@ -4,7 +4,6 @@
 
 import random
 from data import *
-# from tests import *
 
 #############################################################################################################
 # HELPER FUNCTIONS                                                                                          #
@@ -468,9 +467,30 @@ def getStatementYN(input):
         return INVALID
 
 def SaveGame():
-    print("SAVING")
-    print("SAVING")
-    print("SAVING")
+    f = open(fileName, "w")
+
+    addStr = "Location=%s\n" %LocationID
+    f.write(addStr)
+
+    addStr = "ItemPos="
+    for item in PositionOfItems:
+        addStr = "%s%s," %(addStr, item)
+    addStr = addStr[:-1]
+    addStr += "\n"
+    f.write(addStr)
+
+    addStr = "Score=%s\n" %GetScore()
+    f.write(addStr)
+
+    addStr = "Visited="
+    for item in VisitedPlaces:
+        addStr = "%s%s," %(addStr, item)
+    addStr = addStr[:-1]
+    addStr += "\n"
+    f.write(addStr)
+    f.close()
+
+
 
 def OnGameInit():  # When the game first initializes
     DungeonMaster()

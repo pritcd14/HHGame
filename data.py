@@ -67,5 +67,7 @@ NO = "0"
 INVALID = "-1"
 WINNING_SCORE = 17
 WINNING_ROOM = 57
+fileName = "gameData.txt"
+
 
 VisitedPlaces = []

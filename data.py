@@ -12,8 +12,6 @@ DirectionsArray = \
 'SE',   'NSW',  'E',    'WE',   'NW',   'SE',   'SWE',  'NW',
 'NE',   'NWE',  'WE',   'WE',   'WE',   'NWE',  'NWE',  'W']
 
-
-
 LocationsArray = \
 [ 'DARK CORNER',                  'OVERGROWN GARDEN',       'BY LARGE WOODPILE',         'YARD BY RUBBISH',
   'WEEDPATCH',                    'FOREST',                 'THICK FOREST',              'BLASTED TREE',
@@ -32,9 +30,22 @@ LocationsArray = \
   'BY TWISTED RAILING',           'PATH THROUGH IRON GATE', 'BY RAILINGS',               'BENEATH FRONT TOWER',
   'DEBRIS FROM CRUMBLING FACADE', 'LARGE FALLEN BRICKWORK', 'ROTTING STONE ARCH',        'CRUMBLING CLIFFTOP']
 
-VerbList = ['HELP', 'CARRYING?', 'GO',    'N',       'S',       'W',     'E',   'U',      'D',
-            'GET',  'TAKE',      'OPEN',  'EXAMINE', 'READ',    'SAY',
-            'DIG',  'SWING',     'CLIMB', 'LIGHT',   'UNLIGHT', 'SPRAY', 'USE', 'UNLOCK', 'DROP', 'SCORE']
+DVerbList = {"HELP, COMMANDS, VERBS, OBJECTIVES": "Display the objective and all commands",
+             "CARRYING, INVENTORY, INV, ITEMS": "Display the items you are carrying",
+             "GO": "Move in a specified direction",
+             "N": "Specify you want to move North",
+             "S": "Specify you want to move South",
+             "W": "Specify you want to move West",
+             "E": "Specify you want to move East",
+             "GET, TAKE": "Take an item from the room",
+             "USE": "Use an item",
+             "OPEN": "Open a door",
+             "UNLOCK": "Unlock a door/prop",
+             "EXAMINE": "Examine your surroundings (info about room)",
+             "DIG": "Dig a hole",
+             "SCORE, SC": "Display your score",
+             "DROP": "Drop an item",
+             "MAP, M": "Show/Hide the map"}
 
 NounList = ['NORTH',   'SOUTH',  'WEST',   'EAST',    'UP',   'DOWN',
             'DOOR',    'BATS',   'GHOSTS', 'X2ANFAR', 'SPELLS', 'WALL']
@@ -47,3 +58,8 @@ ItemList = ['PAINTING', 'RING',      'MAGIC SPELLS', 'GOBLET', 'SCROLL', 'COINS'
             'VACUUM',   'BATTERIES', 'SHOVEL',       'AXE',    'ROPE',   'BOAT',  'AEROSOL', 'CANDLE',      'KEY']
 
 PositionOfItems = [46, 38, 35, 50, 13, 18, 28, 42, 10, 25, 26, 4, 2, 7, 47, 60, 100, 100]
+
+MapEnabled = True
+LocationID = 0
+
+VisitedPlaces = []

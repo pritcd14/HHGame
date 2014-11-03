@@ -730,6 +730,8 @@ Thanks for playing!
 
 def InitEnd(value):
     if value == 1: # Boss Fight
+        global PLAYING
+        winsound.PlaySound("sounds/battle.wav", winsound.SND_LOOP | winsound.SND_ASYNC)
 
         printASCII("WIZARD")
         print("\nYou encounter an evil wizard at the end of the bridge!")

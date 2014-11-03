@@ -80,5 +80,6 @@ fileName = "gameData.txt"
 PLAYING = -1
 SND_RAIN = 0
 SND_BG = 1
+SND_BATTLE = 2
 
 VisitedPlaces = []
